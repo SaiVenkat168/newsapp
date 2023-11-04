@@ -18,9 +18,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity implements CategoryAdapter.CategoryClickInterface{
-//83345ea6f7d743358c306538c55bdca5
-    //GET https://newsapi.org/v2/top-headlines/sources?apiKey=API_KEY
-    //GET https://newsapi.org/v2/everything?q=Apple&from=2021-08-25&sortBy=popularity&apiKey=API_KEY
     private RecyclerView newsRV,categoryRV;
     private ProgressBar loadingPB;
     private ArrayList<Articles> articlesArrayList;
@@ -60,8 +57,9 @@ public class MainActivity extends AppCompatActivity implements CategoryAdapter.C
     {
         loadingPB.setVisibility(View.VISIBLE);
         articlesArrayList.clear();
-        String categoryUrl="http://newsapi.org/v2/top-headlines?country=in&category="+category+"&apiKey=83345ea6f7d743358c306538c55bdca5";
-        String url="http://newsapi.org/v2/top-headlines?country=in&excludeDomains=stackoverflow.com&sortBy=publishedAt&language=en&apiKey=83345ea6f7d743358c306538c55bdca5";
+        String apiKey="YOUR-API-KEY";
+        String categoryUrl="http://newsapi.org/v2/top-headlines?country=in&category="+category+"&apiKey="+apiKwy;
+        String url="http://newsapi.org/v2/top-headlines?country=in&excludeDomains=stackoverflow.com&sortBy=publishedAt&language=en&apiKey="+apiKey;
         String BASE_URL="https://newsapi.org/";
         Retrofit retrofit=new Retrofit.Builder()
                 .baseUrl(BASE_URL)
